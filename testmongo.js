@@ -173,6 +173,9 @@ app.post("/login", function (req, res) {
       await client.close();
     }
   }
+  run().catch(console.dir);
+
+});
 
   //T2. registering user
   app.post("/register", function (req, res) {
@@ -211,4 +214,5 @@ app.post("/login", function (req, res) {
   });
 
 
-});
+
+
