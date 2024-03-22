@@ -5,9 +5,14 @@ const uri = "mongodb+srv://<user>:<password>@ckmdb.5oxvqja.mongodb.net/?retryWri
 
 // --- This is the standard stuff to get it to work on the browser
 const express = require('express');
+const cookieParser = require('cookie-parser')
 const app = express();
 const port = 3000;
+
 app.listen(port);
+app.use(cookieParser());
+
+
 console.log('Server started at http://localhost:' + port);
 
 app.use(express.json());
@@ -38,8 +43,6 @@ app.get('/say/:name', function(req, res) {
   res.send('Hello ' + req.params.name + '!');
 });
 
-
-// Access Example-1
 // Route to access database using a parameter:
 // access as ...app.github.dev/api/mongo/9876
 app.get('/api/mongo/:item', function(req, res) {
